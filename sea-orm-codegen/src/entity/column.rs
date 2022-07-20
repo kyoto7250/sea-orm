@@ -128,7 +128,9 @@ impl Column {
             }
             ColumnType::Time(_) => quote! { ColumnType::Time.def() },
             ColumnType::Date => quote! { ColumnType::Date.def() },
-            ColumnType::Binary(BlobSize::Blob(_)) | ColumnType::VarBinary(_) => quote! { ColumnType::Binary.def() },
+            ColumnType::Binary(BlobSize::Blob(_)) | ColumnType::VarBinary(_) => {
+                quote! { ColumnType::Binary.def() }
+            }
             ColumnType::Binary(BlobSize::Tiny) => quote! { ColumnType::TinyBinary.def() },
             ColumnType::Binary(BlobSize::Medium) => quote! { ColumnType::MediumBinary.def() },
             ColumnType::Binary(BlobSize::Long) => quote! { ColumnType::LongBinary.def() },
